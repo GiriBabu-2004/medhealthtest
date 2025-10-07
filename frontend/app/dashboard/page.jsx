@@ -1,9 +1,15 @@
-//app/dashboard/page.jsx
 'use client';
 import { useEffect, useState } from 'react';
 import { auth } from '@/lib/firebase';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
+
+import Navbar from '@/components/Navbar';
+import Hero from '@/components/Hero';
+import Services from '@/components/Services';
+import About from '@/components/About';
+import Contact from '@/components/Contact';
+import Footer from '@/components/Footer';
 
 export default function Dashboard() {
   const [user, setUser] = useState(null);
@@ -26,26 +32,17 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen text-black bg-gray-50">
+    <div className="text-gray-800 bg-gray-50 min-h-screen">
       {user && (
         <>
-          <h1 className="text-3xl font-bold mb-4">
-            Welcome, {user.displayName}
-          </h1>
-          <div>Email: {user.email}</div>
-          <div>
-          <img
-            src={user.photoURL}
-            alt="User avatar"
-            className="w-24 h-24 rounded-full mb-4"
-          />
-          </div>
-          <button
-            onClick={handleLogout}
-            className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition"
-          >
-            Sign Out
-          </button>
+          <Navbar user={user} onLogout={handleLogout} />
+          <main>
+            <Hero />
+            <Services />
+            <About />
+            <Contact />
+          </main>
+          <Footer />
         </>
       )}
     </div>
