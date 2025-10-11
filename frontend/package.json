@@ -10,11 +10,13 @@
   },
   "dependencies": {
     "firebase": "^12.3.0",
+    "formidable": "^3.5.4",
     "jspdf": "^3.0.3",
     "lucide-react": "^0.545.0",
     "mongoose": "^8.19.1",
     "next": "15.5.4",
     "nodemailer": "^7.0.9",
+    "pdf-parse": "^2.2.6",
     "react": "19.1.0",
     "react-dom": "19.1.0"
   },
