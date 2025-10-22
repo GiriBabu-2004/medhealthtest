@@ -1,7 +1,8 @@
 'use client';
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
-
+import { Poppins } from 'next/font/google';
+const poppins = Poppins({ subsets: ['latin'], weight: '700' });
 export default function Navbar({ user, onLogout }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -10,15 +11,27 @@ export default function Navbar({ user, onLogout }) {
     <nav className="fixed w-full top-0 z-50 bg-white/70 backdrop-blur-md shadow-md">
       <div className="flex justify-between items-center px-6 py-3">
         {/* Logo */}
-        <div className="text-2xl font-bold text-blue-600">MedHealth</div>
+        <div className={`text-2xl font-extrabold ${poppins.className}`}>
+          <span className="text-green-500">MedHe</span>
+          <span className="text-black">alth.ai</span>
+        </div>
 
         {/* Nav Links */}
         <div className="hidden md:flex gap-6 font-medium">
-          <a href="#home" className="hover:text-blue-500">Home</a>
-          <a href="#services" className="hover:text-blue-500">Services</a>
-          <a href="#about" className="hover:text-blue-500">About Us</a>
-          <a href="#contact" className="hover:text-blue-500">Contact</a>
-        </div>
+  <div className="transition-all duration-300 hover:bg-gray-200 px-3 py-1 ">
+    <a href="#home" className="hover:text-green-500">Home</a>
+  </div>
+  <div className="transition-all duration-300 hover:bg-gray-200 px-3 py-1 ">
+    <a href="#services" className="hover:text-green-500">Services</a>
+  </div>
+  <div className="transition-all duration-300 hover:bg-gray-200 px-3 py-1 ">
+    <a href="#about" className="hover:text-green-500">About Us</a>
+  </div>
+  <div className="transition-all duration-300 hover:bg-gray-200 px-3 py-1 ">
+    <a href="#contact" className="hover:text-green-500">Contact</a>
+  </div>
+</div>
+
 
         {/* Profile */}
         <div className="relative">
@@ -26,7 +39,7 @@ export default function Navbar({ user, onLogout }) {
             src={user?.photoURL}
             alt="Profile"
             onClick={() => setDropdownOpen(!dropdownOpen)}
-            className="w-10 h-10 rounded-full cursor-pointer border-2 border-blue-500"
+            className="w-10 h-10 rounded-full cursor-pointer border-2 border-green-500"
           />
           {dropdownOpen && (
             <div className="absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg py-2 text-sm">
