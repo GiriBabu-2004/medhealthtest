@@ -20,7 +20,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative flex flex-col items-center justify-start text-center bg-gradient-to-b from-blue-100 to-white px-6 pt-[100px] pb-20 min-h-screen"
+      className="relative flex flex-col items-center justify-start text-center px-6 pt-[100px] pb-20 min-h-screen"
     >
       {/* Hero content area (fills top of screen) */}
       <div className="flex flex-col items-center justify-center min-h-[70vh]">

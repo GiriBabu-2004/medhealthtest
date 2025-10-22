@@ -1,6 +1,6 @@
 export default function About() {
   return (
-    <section id="about" className="py-20 text-center bg-white">
+    <section id="about" className="py-20 text-center ">
       <h2 className="text-4xl font-bold text-blue-700 mb-6">About Us</h2>
       <p className="max-w-2xl mx-auto text-gray-600">
         MedHealth is your intelligent health companion — helping you

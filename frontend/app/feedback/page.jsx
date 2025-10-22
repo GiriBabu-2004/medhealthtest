@@ -51,7 +51,7 @@ export default function FeedbackPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-6">
+    <div className="min-h-screen flex flex-col items-center justify-center p-6">
       <div className="max-w-md w-full bg-white rounded-xl shadow-lg p-6">
         <h2 className="text-2xl font-bold text-center mb-4">We Value Your Feedback 💬</h2>
 

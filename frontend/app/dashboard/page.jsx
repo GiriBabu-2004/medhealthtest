@@ -37,7 +37,8 @@ export default function Dashboard() {
       {user && (
         <>
           <Navbar user={user} onLogout={handleLogout} />
-          <main>
+          <main   style={{ backgroundImage: 'url("/mainback1.png")' }}
+>
             <Hero />
             <Services />
             <About />
