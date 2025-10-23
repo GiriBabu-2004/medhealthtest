@@ -11,6 +11,7 @@ import About from '@/components/About';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import Feedback from '@/app/feedback/page';
+import Chatbot from '@/components/Chatbot';
 
 export default function Dashboard() {
   const [user, setUser] = useState(null);
@@ -46,6 +47,7 @@ export default function Dashboard() {
             <Feedback />
           </main>
           <Footer />
+          <Chatbot />
         </>
       )}
     </div>
