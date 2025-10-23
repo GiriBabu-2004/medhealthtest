@@ -53,7 +53,7 @@ export default function Hero() {
 
       {/* Feedback Section */}
       {feedbacks.length > 0 && (
-        <div className="w-full max-w-6xl bg-white  shadow-lg p-8 overflow-x-auto scrollbar-hide mt-4">
+        <div className="w-full max-w-6xl bg-white border border-green-500 shadow-lg p-8 overflow-x-auto scrollbar-hide mt-4">
           <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">
             ⭐ Top User Feedback
           </h2>
