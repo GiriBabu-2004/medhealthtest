@@ -1,17 +1,19 @@
-'use client';
-import { useEffect, useState } from 'react';
-
+"use client";
+import { useEffect, useState } from "react";
+import { Poppins } from "next/font/google";
+import { ArrowRight } from "lucide-react";
+const poppins = Poppins({ subsets: ["latin"], weight: "700" });
 export default function Hero() {
   const [feedbacks, setFeedbacks] = useState([]);
 
   useEffect(() => {
     const fetchFeedbacks = async () => {
       try {
-        const res = await fetch('/api/feedback');
+        const res = await fetch("/api/feedback");
         const data = await res.json();
         if (data.success) setFeedbacks(data.feedbacks);
       } catch (err) {
-        console.error('Failed to fetch feedbacks:', err);
+        console.error("Failed to fetch feedbacks:", err);
       }
     };
     fetchFeedbacks();
@@ -24,31 +26,34 @@ export default function Hero() {
     >
       {/* Hero content area (fills top of screen) */}
       <div className="flex flex-col items-center justify-center min-h-[70vh]">
-        <h1 className="text-5xl md:text-6xl font-extrabold text-blue-600 mb-4 leading-tight">
-          Welcome to <span className="text-blue-800">MedHealth</span>
-        </h1>
+        <span
+          className={`font-bold  text-6xl block mb-2 ${poppins.className} `}
+        >
+          Welcome to <span className="text-green-500">MedHe</span>
+          <span className="text-black">alth.ai</span>
+        </span>
 
-        <p className="max-w-xl text-lg text-gray-600 mb-8 mx-auto">
+        <p className="max-w-2xl text-md text-gray-600 mb-8 mx-auto">
           Upload your prescription or medicine image and instantly get detailed
-          information. Search for specific medicines and manage your health effortlessly.
+          information. Search for specific medicines and manage your health
+          effortlessly. Create your medicine track records with ease!
         </p>
 
         <button
-          onClick={() =>
-            document.getElementById('save-track')?.scrollIntoView({ behavior: 'smooth' })
-          }
-          className="group bg-blue-600 text-white px-8 py-3 rounded-full shadow-lg hover:bg-blue-700 transition flex items-center gap-2 mx-auto"
+          onClick={() => {
+            const section = document.getElementById("services");
+            if (section) section.scrollIntoView({ behavior: "smooth" });
+          }}
+          className="group px-6 py-3 bg-gradient-to-r from-green-500 to-green-600 text-white text-lg hover:from-green-600 hover:to-green-700 transition flex items-center gap-2 cursor-pointer"
         >
-          Get Started
-          <span className="transform transition-transform duration-300 group-hover:translate-x-1">
-            →
-          </span>
+          Try Now
+          <ArrowRight className="inline w-5 h-5 transform transition-transform duration-200 group-hover:translate-x-1" />
         </button>
       </div>
 
       {/* Feedback Section */}
       {feedbacks.length > 0 && (
-        <div className="w-full max-w-6xl bg-white rounded-2xl shadow-lg p-8 overflow-x-auto scrollbar-hide mt-12">
+        <div className="w-full max-w-6xl bg-white  shadow-lg p-8 overflow-x-auto scrollbar-hide mt-4">
           <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">
             ⭐ Top User Feedback
           </h2>
@@ -57,18 +62,26 @@ export default function Hero() {
             {feedbacks.map((f, i) => (
               <div
                 key={i}
-                className="min-w-[260px] max-w-[280px] bg-blue-50 border border-blue-200 rounded-xl shadow-sm p-4 text-left flex-shrink-0 hover:shadow-md transition-all duration-300"
+                className="min-w-[260px] max-w-[280px] bg-blue-50 border border-blue-200  shadow-sm p-4 text-left flex-shrink-0 hover:shadow-md transition-all duration-300"
               >
                 <div className="flex items-center mb-2">
                   {[...Array(f.rating)].map((_, i) => (
-                    <span key={i} className="text-yellow-400 text-lg">★</span>
+                    <span key={i} className="text-yellow-400 text-lg">
+                      ★
+                    </span>
                   ))}
                   {[...Array(5 - f.rating)].map((_, i) => (
-                    <span key={i} className="text-gray-300 text-lg">★</span>
+                    <span key={i} className="text-gray-300 text-lg">
+                      ★
+                    </span>
                   ))}
                 </div>
-                <p className="text-gray-700 italic line-clamp-3">"{f.message}"</p>
-                <p className="text-sm text-gray-600 mt-3 font-medium">– {f.name}</p>
+                <p className="text-gray-700 italic line-clamp-3">
+                  "{f.message}"
+                </p>
+                <p className="text-sm text-gray-600 mt-3 font-medium">
+                  – {f.name}
+                </p>
               </div>
             ))}
           </div>
