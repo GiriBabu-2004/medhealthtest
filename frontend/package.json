@@ -20,7 +20,8 @@
     "nodemailer": "^7.0.9",
     "pdf-parse": "^2.2.6",
     "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "react-icons": "^5.5.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
