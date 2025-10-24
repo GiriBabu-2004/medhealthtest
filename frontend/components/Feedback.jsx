@@ -39,11 +39,11 @@ export default function FeedbackForm({ user }) {
   };
 
   return (
-    <div className="max-w-md w-full bg-white rounded-xl shadow-lg p-6">
-      <h2 className="text-2xl font-bold text-center mb-4">We Value Your Feedback 💬</h2>
+    <div className="max-w-md w-full p-6">
+      <h2 className="text-2xl font-bold text-center mb-4">We Value Your Feedback</h2>
 
-      {/* Rating Stars */}
-      <div className="flex justify-center mb-4">
+      {/* ⭐ Animated Rating Stars */}
+      <div className="flex justify-center mb-6 gap-x-3">
         {[1, 2, 3, 4, 5].map((star) => (
           <button
             key={star}
@@ -51,11 +51,30 @@ export default function FeedbackForm({ user }) {
             onClick={() => setRating(star)}
             onMouseEnter={() => setHover(star)}
             onMouseLeave={() => setHover(0)}
-            className="text-3xl"
+            className="transition-transform duration-200 hover:scale-115"
           >
-            <span className={(hover || rating) >= star ? 'text-yellow-400' : 'text-gray-300'}>
-              ★
-            </span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              strokeWidth="2"
+              className={`w-8 h-8 cursor-pointer  transition-all duration-300 ${
+                (hover || rating) >= star ? 'text-yellow-400 scale-110' : 'text-gray-300'
+              }`}
+              stroke="currentColor"
+            >
+              <defs>
+                <linearGradient id={`grad-${star}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#facc15" />
+                  <stop offset="100%" stopColor="#fbbf24" />
+                </linearGradient>
+              </defs>
+              <path
+                fill={(hover || rating) >= star ? `url(#grad-${star})` : 'none'}
+                stroke={(hover || rating) >= star ? 'url(#grad-' + star + ')' : 'currentColor'}
+                d="M12 2l2.9 6.26L22 9.27l-5 4.87 1.18 6.86L12 17.77l-6.18 3.23L7 14.14 2 9.27l7.1-1.01L12 2z"
+              />
+            </svg>
           </button>
         ))}
       </div>
@@ -66,15 +85,15 @@ export default function FeedbackForm({ user }) {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           placeholder="Write your feedback..."
-          className="w-full border rounded-lg p-3"
+          className="w-full border resize-none focus:outline-none p-3"
           rows="4"
           required
         />
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
+          className="w-full bg-gradient-to-r from-green-500 to-green-600 text-white py-2  hover:from-green-600 hover:to-green-700 transition-all duration-300"
         >
-          Submit Feedback
+          Submit
         </button>
       </form>
 

@@ -68,11 +68,11 @@ export default function Dashboard() {
       if (e.target === e.currentTarget) setShowFeedback(false);
     }}
   >
-    <div className="bg-white w-[90%] max-w-md p-6 rounded-lg shadow-lg relative animate-fadeIn">
+    <div className="bg-white  max-w-md p-6  shadow-lg relative animate-fadeIn">
       {/* Close Button */}
       <button
         onClick={() => setShowFeedback(false)}
-        className="absolute top-3 right-3 text-gray-500 hover:text-gray-700 text-xl font-bold"
+        className="absolute top-3 right-3 text-gray-500 hover:text-red-700 text-xl font-bold cursor-pointer"
       >
         &times;
       </button>
