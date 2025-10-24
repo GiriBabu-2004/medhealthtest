@@ -7,8 +7,23 @@ export default function Navbar({ user, onLogout }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
+  const handleScroll = (e, id) => {
+    e.preventDefault(); // prevent default anchor jump
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const menuItems = [
+    { name: "Home", id: "home" },
+    { name: "Services", id: "services" },
+    { name: "About Us", id: "about" },
+    { name: "Contact", id: "contact" },
+  ];
+
   return (
-    <nav className="fixed w-full top-0 z-50 bg-white/70 backdrop-blur-md shadow-md">
+    <nav className="fixed w-full top-0 z-50 bg-white/70 backdrop-blur-md shadow-md border border-green-500">
       <div className="flex justify-between items-center px-6 py-3">
         {/* Logo */}
         <div className={`text-2xl font-extrabold ${poppins.className}`}>
@@ -17,20 +32,21 @@ export default function Navbar({ user, onLogout }) {
         </div>
 
         {/* Nav Links */}
-        <div className="hidden md:flex gap-6 font-medium">
-  <div className="transition-all duration-300 hover:bg-gray-200 px-3 py-1 ">
-    <a href="#home" className="hover:text-green-500">Home</a>
-  </div>
-  <div className="transition-all duration-300 hover:bg-gray-200 px-3 py-1 ">
-    <a href="#services" className="hover:text-green-500">Services</a>
-  </div>
-  <div className="transition-all duration-300 hover:bg-gray-200 px-3 py-1 ">
-    <a href="#about" className="hover:text-green-500">About Us</a>
-  </div>
-  <div className="transition-all duration-300 hover:bg-gray-200 px-3 py-1 ">
-    <a href="#contact" className="hover:text-green-500">Contact</a>
-  </div>
-</div>
+       <div className="hidden md:flex gap-6 font-medium">
+      {menuItems.map((item) => (
+        <div key={item.name} className="relative group cursor-pointer">
+          <a
+            href={`#${item.id}`}
+            onClick={(e) => handleScroll(e, item.id)}
+            className="text-black  transition-colors duration-300"
+          >
+            {item.name}
+          </a>
+          {/* Underline animation */}
+          <span className="absolute left-0 -bottom-[5px] w-0 h-[2px] bg-green-500 transition-all duration-300 group-hover:w-full"></span>
+        </div>
+      ))}
+    </div>
 
 
         {/* Profile */}
