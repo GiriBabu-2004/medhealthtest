@@ -12,6 +12,7 @@ import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import Feedback from '@/components/Feedback';
 import Chatbot from '@/components/Chatbot';
+import FAQSection from '@/components/FAQsection';
 
 export default function Dashboard() {
   const [user, setUser] = useState(null);
@@ -44,6 +45,7 @@ export default function Dashboard() {
             <Hero />
             <Services />
             <About />
+            <FAQSection />
             <Contact />
           </main>
           <Footer />

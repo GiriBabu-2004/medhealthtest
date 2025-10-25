@@ -15,7 +15,14 @@ export default function Footer() {
           <p className="text-sm text-gray-600">
             &copy; {new Date().getFullYear()} MedHealth. All rights reserved.
           </p>
+           <div className="flex mt-4 space-x-4">
+            <a href="#" className="text-gray-600 hover:text-green-500"><FaFacebookF /></a>
+            <a href="#" className="text-gray-600 hover:text-green-500"><FaTwitter /></a>
+            <a href="#" className="text-gray-600 hover:text-green-500"><FaInstagram /></a>
+            <a href="#" className="text-gray-600 hover:text-green-500"><FaLinkedinIn /></a>
+          </div>
         </div>
+        
 
         {/* Right Side - Links and Socials */}
         <div className="flex flex-col md:flex-row items-start md:items-center md:space-x-12 space-y-8 md:space-y-0">
@@ -42,12 +49,7 @@ export default function Footer() {
           </div>
 
           {/* Social Icons */}
-          <div className="flex right-0 bottom-0 space-x-4">
-            <a href="#" className="text-gray-600 hover:text-green-500"><FaFacebookF /></a>
-            <a href="#" className="text-gray-600 hover:text-green-500"><FaTwitter /></a>
-            <a href="#" className="text-gray-600 hover:text-green-500"><FaInstagram /></a>
-            <a href="#" className="text-gray-600 hover:text-green-500"><FaLinkedinIn /></a>
-          </div>
+         
         </div>
       </div>
     </footer>
