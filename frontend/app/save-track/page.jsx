@@ -583,6 +583,12 @@ export default function SaveTrackPage() {
     <div className="min-h-screen bg-gray-50 py-12 px-4">
       {/* Page Header */}
       <div className="max-w-3xl mx-auto mb-8 text-center">
+          <div className="absolute top-5 left-5">
+  <div className={`text-2xl font-extrabold ${poppins.className}`}>
+    <span className="text-green-500">MedHe</span>
+    <span className="text-black">alth.ai</span>
+  </div>
+</div>
         <div className="inline-flex items-center gap-2 bg-green-50 border border-green-200 text-green-700 text-xs font-semibold px-3 py-1 rounded-full mb-4">
           <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse inline-block" />
           Secure & Private
