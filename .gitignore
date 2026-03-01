@@ -1,0 +1,12 @@
+.env
+.git
+__pycache__
+node_modules
+venv
+
+docs_medical_complete.jsonl
+index_summary.json
+medical_docs_meta.pkl
+medical_docs.index
+medical_qa_results_*.txt
+offload

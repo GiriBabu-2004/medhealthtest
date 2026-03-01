@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+python-dotenv
+pytesseract
+pdf2image
+PyPDF2
+Pillow
+aiofiles  # for UploadFile handling in FastAPI
