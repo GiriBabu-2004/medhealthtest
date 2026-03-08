@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata = {
-  title: 'MedHealth.ai — AI-Powered Health Companion',
+  title: 'MedHealth.ai',
   description: 'Upload prescriptions, search medicines, and track your health with AI',
   icons: {
     icon: [
